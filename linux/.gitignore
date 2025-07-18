@@ -1,0 +1,43 @@
+# Python compiled files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Cython compiled files
+*.c
+*.so
+*.pyd
+
+# Build directories
+build/
+dist/
+*.egg-info/
+
+# Log files
+*.log
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Virtual environment (if created locally)
+venv/
+env/
+ENV/
+
+# Temporary files
+*.tmp
+*.bak
+*.orig
