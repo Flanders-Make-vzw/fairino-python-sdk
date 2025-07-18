@@ -8,7 +8,7 @@ This fork is targetted at Python > 3.12 for linux platforms. Enhanced with impro
 
 Documentation
 ----------------
-Please see [Python SDK](https://fair-documentation.readthedocs.io/en/latest/SDKManual/python_intro.html)。
+Please see [Python SDK](https://fairino-doc-en.readthedocs.io/latest/SDKManual/python_intro.html)
 
 
 Installation
