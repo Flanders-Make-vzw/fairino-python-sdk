@@ -12,8 +12,14 @@ def robot_ip():
     return "192.168.58.2"
 
 
+@pytest.fixture(scope="session")
+def neutral_joints():
+    """Neutral joint position to ensure robot doesn't run out of bounds"""
+    return [50, -80, 110, -130, -20, 0]
+
+
 @pytest.fixture(scope="function")
-def robot_connection(robot_ip):
+def robot_connection(robot_ip, neutral_joints):
     """
     Create a robot connection for each test.
     This fixture handles connection setup and cleanup.
@@ -30,13 +36,20 @@ def robot_connection(robot_ip):
         robot.RobotEnable(1)
         robot.Mode(1)  # Manual mode
         time.sleep(1)  # Brief initialization wait
+        
+        # Move to neutral position for safety
+        ret = robot.MoveJ(neutral_joints, tool=0, user=0, vel=15.0)
+        if ret == 0:
+            time.sleep(3)  # Wait for movement to complete
     except Exception as e:
         pytest.skip(f"Robot initialization failed: {e}")
     
     yield robot
     
-    # Cleanup
+    # Cleanup - return to neutral position
     try:
+        robot.MoveJ(neutral_joints, tool=0, user=0, vel=15.0)
+        time.sleep(2)  # Wait for movement to complete
         robot.CloseRPC()
     except:
         pass

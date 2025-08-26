@@ -4,7 +4,7 @@ Introduction
 ---------------
 This is a fork of the Python language SDK library specially designed for fairino collaborative robots.
 
-This fork is targetted at Python > 3.12 for linux platforms. Enhanced with improved installation procesed, extra examples, and documentation.
+This fork is targetted at Python > 3.12 for linux platforms. Enhanced with improved installation process, extra examples, tests, and documentation.
 
 Documentation
 ----------------
@@ -113,3 +113,10 @@ pytest -v
 
 
 Tests validate robot functionality, movement accuracy, and OpenTeach framework compatibility. See `linux/tests/README.md` for detailed documentation.
+
+
+### Timing analysis 
+
+Timing analysis results (from the [test_movement_timing.py](linux/tests/test_movement_timing.py) test) comparing the delays for the real robot vs fairino SimMachine. 
+It is quite disturbing that the real robot is about x800 slower than the simulator for the MoveL command. 
+

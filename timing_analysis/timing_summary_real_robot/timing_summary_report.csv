@@ -1,0 +1,2 @@
+test_type,avg_time,max_time,min_time,std_dev,sample_count
+"['Joint Movements (MoveJ)', 'Cartesian Movements (MoveL)', 'Motion Status Checks']","[np.float64(0.5933752655982971), np.float64(1.6748169183731079), np.float64(8.213520050048828e-05)]","[np.float64(2.0090837478637695), np.float64(12.720944166183472), np.float64(0.0002048015594482422)]","[np.float64(0.40773916244506836), np.float64(0.40735316276550293), np.float64(3.8623809814453125e-05)]","[np.float64(0.33374292575028297), np.float64(3.305113853431554), np.float64(3.964519597084015e-05)]","[20, 20, 50]"
