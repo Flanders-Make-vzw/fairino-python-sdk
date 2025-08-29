@@ -101,6 +101,12 @@ If you have connection issues and the ROS node crashes due to reconnection issue
 
 Reference: [https://www.youtube.com/watch?v=TmgsO-ZCiwU](https://www.youtube.com/watch?v=TmgsO-ZCiwU)
 
+Execute
+```shell
+./network_config.sh
+```
+to automatically apply the commands below, or run them manually.
+
 #### Identify interface and driver
 
 Find the wired interface name and basic link state, then confirm the driver/firmware as a baseline.
