@@ -6,7 +6,9 @@ from fairino import Robot
 import time
 import math
 
-target_joints = [50, -80, 110, -130, -20, 0]  # Neutral position in degrees
+# target_joints = [58, -80, 110, -130, -20, 0]  # Neutral position in degrees
+target_joints = [58, -113, 113, -102, -88, -8]  # Neutral position in degrees
+
 
 def move_to_neutral_position():
     """
@@ -23,7 +25,7 @@ def move_to_neutral_position():
     try:
 
         # Move to neutral position
-        ret = robot.MoveJ(target_joints, tool=0, user=0, vel=50)
+        ret = robot.MoveJ(target_joints, tool=0, user=0, vel=20)
         
         if ret == 0:
             print("✅ Moved to neutral position successfully")
