@@ -182,7 +182,24 @@ Tests validate robot functionality, movement accuracy, and OpenTeach framework c
 Timing analysis results (from the [test_movement_timing.py](linux/tests/test_movement_timing.py) test) comparing the delays for the real robot vs fairino SimMachine. 
 It is quite disturbing that the real robot is about x800 slower than the simulator for the MoveL command. 
 
+## Configure JODELL Gripper 
 
-
+The JODELL EPG40-050 gripper has a predefined configuration in the fairino system. However is still required so steps to integrate and activate.
+Fairino have their page for installing the gripper but it is difficult to follow.
+https://fairino-doc-en.readthedocs.io/latest/CobotsManual/robot_peripherals.html#gripper-peripheral-configuration
+The following steps will set up the gripper as required.
+1. On the fairino web interface navigate to "Initial -> Peripheral -> End-Tool -> Adapted device"
+2. Press "Clear"
+3. The configure: Equipment type "Gripper equipment", 
+                  Gripper Manu. "JODELL" 
+                  Gripper type "RG"
+                  Software version "J1.0"
+                  Mount location "Port 2 at the end"
+4. Press "Configure"
+5. Press "Reset"
+6. Select Activate the configured gripper "2"
+7. press "Active"
+This completes the installation.
+A test script is located at `linux/fm_examples/gripper_example.py`.
 
 
