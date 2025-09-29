@@ -30,6 +30,17 @@ robot.ResetAllError()   # Clear any errors
 # Average time and std for gripper operation in non-blocking mode: 1.8414 seconds, 0.4355 seconds
 
 
+def get_gripper_position() -> int:
+    """Get current gripper position
+
+    Returns:
+        int: Current gripper position (0-100 = open-close)
+    """
+    error_code, _, position = robot.robot.GetGripperCurPosition()
+    if error_code != 0:
+        raise RuntimeError(f"Error getting gripper position: {error_code}")
+
+    return position
 
 def move_gripper(pose: int, blocking: bool = False) -> int:
     return robot.MoveGripper(index=2, pos=pose, vel=50, force=10, maxtime=30000, block=0 if blocking else 1, type=0, rotNum=0, rotVel=0, rotTorque=0)
@@ -102,4 +113,24 @@ def timing_analysis():
 
 
 if __name__ == "__main__":
-    timing_analysis()
+
+    print("Opening gripper...")
+    open_gripper(blocking=False)
+    
+    current_pos = get_gripper_position()
+    print(f"Current gripper position: {current_pos}")
+
+    time.sleep(5)
+    print("Closing gripper...")
+    close_gripper(blocking=False)
+
+    time.sleep(5)
+
+    current_pos = get_gripper_position()
+    print(f"Current gripper position: {current_pos}")
+
+
+    time.sleep(5)
+    for i in range(10):
+        current_pos = get_gripper_position()
+        print(f"Current gripper position: {current_pos}")
